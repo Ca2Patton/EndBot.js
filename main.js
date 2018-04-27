@@ -16,20 +16,20 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', message => {
-    if (message.content === 'ping') {
+    if (message.content === '&ping') {
       message.reply('pong');
     }
   });
 
 client.on('message', message => {
-    if (message.content === '!users') {
+    if (message.content === '&users') {
         message.reply(message.guild.memberCount);
     }
 });
 
 client.on('message', message => {
-    if (message.content === '!commands') {
-        message.reply =('!users - List users');
+    if (message.content === '&commands') {
+        message.reply =('&users - List users');
     }
 });
 
