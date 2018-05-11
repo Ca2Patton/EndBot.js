@@ -33,10 +33,10 @@ module.exports = {
                 },
             });
         }
+        else {
         const taggedUser = message.mentions.users.first();
         
         message.channel.send(`${taggedUser} Looking to join theEndless? See below:`);
-        
         message.channel.send({
             embed: {
                 color: 0x0099ff,
@@ -67,4 +67,5 @@ module.exports = {
             },
         });
     }
+}
 };
