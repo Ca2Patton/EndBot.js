@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', channel-greeting);
     if (!channel) return;
-    channel.send(`Welcome to the Endless, ${member}! What's your PSN? What game are you here for?`);
+    channel.send(`Welcome to the Endless, ${member}! What's your PSN? What game are you here for? Use ``${prefix}(game) `` with game being the game you play! A list of games are: Destiny~~, Monster-Hunter, ~~and ESO.`);
 });
 
 client.on('message', message => {
@@ -32,11 +32,12 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === `${prefix}destiny`) {
+    	message.reply("Loading...")
         message.channel.send({ embed: {
             color: 0x0099ff,
             title: 'The Endless',
             url: 'https://www.bungie.net/en/ClanV2/Chat?groupId=1572587',
-            description: "Welcome to the Endless! We're happy to have you aboard. All of our D2 (and D1, occasionally) scheduling is done in the chats here. Join other people's groups or post up your own and people can join you. If you have any questions just let any of us know. We got you.",
+            description: "Welcome to the Endless! We're happy to have you aboard. All of our D2 (and D1, occasionally) scheduling is done in the chats here. Join other people's groups or post up your own and people can join you. If you have any questions just let any of us know. We got you. If you would like to join, use ``&destiny-join`` to join.",
             image: {
                 url: 'https://commons.wikimedia.org/wiki/Category:Destiny_2#/media/File:Destiny_2_logo.png',
             },
@@ -65,11 +66,31 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
+    if (message.content ===`${prefix}destiny-join`) {
+        var channel = message.channel
+        let role = message.guild.roles.find("name", "endless");
+        let member = message.member;
+        member.addRole(role).catch(console.error);
+        channel.send("May or may not have added the role.")
+    }
+});
+
+client.on('message', message => {
+    if (message.content ===`${prefix}eso-join`) {
+    	var channel = message.channel
+        let role = message.guild.roles.find("name", "elderscrollers");
+        let member = message.member;
+        member.addRole(role).catch(console.error);
+        channel.send("May or may not have added the role.")
+    }
+});
+
+client.on('message', message => {
     if (message.content ===`${prefix}eso`) {
         message.channel.send({ 
             embed: {
             "title": "TheEndless[ESO]",
-            "description": "Welcome Elder Scrollers! I am the Guildmaster Fawkes35.\n Please feel free to reach out to others using `@elderscrollers` if you need any help with quests or dungeons.\n Make sure you have an **Aldmeri Dominion** character if you're interested in running PVP with the guild.\n Thank you, and Happy Grinding!",
+            "description": "Welcome Elder Scrollers! I am the Guildmaster Fawkes35.\n Please feel free to reach out to others using `@elderscrollers` if you need any help with quests or dungeons.\n Make sure you have an **Aldmeri Dominion** character if you're interested in running PVP with the guild.\n Thank you, and Happy Grinding! Use ``&eso-join`` to get the role.",
             "url": "https://discordapp.com",
             "color": 12337681,
             "timestamp": "2018-05-10T20:43:42.492Z",
@@ -107,8 +128,10 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content ===`${prefix}version`) {
-        message.reply('Version 0.0.1');
+        message.reply('Version 0.0.2');
     }
 });
+
+
 
 client.login(token);
