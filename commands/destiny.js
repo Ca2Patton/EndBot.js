@@ -2,6 +2,7 @@ module.exports = {
     name: 'destiny',
     description: 'Destiny RichEmbed message. Displays misc. information about the clan.',
     execute(message, args) {
+        message.reply('Looking to join theEndless? See below:');
         message.channel.send({
             embed: {
                 color: 0x0099ff,
