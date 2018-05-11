@@ -24,7 +24,7 @@ module.exports = {
                     errors: ['time']
                 })
                 .then(collected => {
-                    message.channel.send(`Specified role is ${collected}.`);
+                    message.channel.send(`Specified role is ${collected.first}.`);
                 })
                 .catch(collected => {
                     message.channel.send('Timed out waiting for a response. Please try again.');
