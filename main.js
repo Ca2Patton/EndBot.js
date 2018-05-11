@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.find('name', channel-greeting);
+    const channel = member.guild.channels.find('name', channel_greeting);
     if (!channel) return;
     channel.send(`Welcome to the Endless, ${member}! What's your PSN? What game are you here for?`);
 });
