@@ -38,7 +38,7 @@ module.exports = {
             const taggedUser = message.mentions.users.first();
 
             message.channel.send(`${taggedUser} Looking to join theEndless? See below:`);
-            return destinyEmbed;
+            destinyEmbed;
         }
     }
 };
