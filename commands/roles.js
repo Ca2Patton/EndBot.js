@@ -20,11 +20,11 @@ module.exports = {
         message.channel.send(item.question).then(() => {
             message.channel.awaitMessages(filter, {
                     maxMatches: 1,
-                    time: 3000,
+                    time: 30000,
                     errors: ['time']
                 })
                 .then(collected => {
-                    const role = message.guild.role.find('name', `${collected.first}`);
+                    const role = message.guild.role.find('name', `${collected}`);
                     message.channel.send(`Specified role is ${role}.`);
                 })
                 .catch(collected => {
