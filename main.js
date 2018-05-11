@@ -1,13 +1,22 @@
 const { Client, MessageEmbed } = require('discord.js');
 const { prefix, token, channel_greeting } = require('./config.json');
+const fs = require('fs');
+
 const client = new Client();
+client.commands = new Discord.Collection();
+const commandFiles = fs.readdirSync('./commands');
+
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.name, command);
+}
 
 client.on('ready', () => {
     console.log('Endbot ready for chat!');
 });
 
 client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.find('name', channel-greeting);
+    const channel = member.guild.channels.find('name', channel_greeting);
     if (!channel) return;
     channel.send(`Welcome to the Endless, ${member}! What's your PSN? What game are you here for?`);
 });
@@ -72,7 +81,7 @@ client.on('message', message => {
             "description": "Welcome Elder Scrollers! I am the Guildmaster Fawkes35.\n Please feel free to reach out to others using `@elderscrollers` if you need any help with quests or dungeons.\n Make sure you have an **Aldmeri Dominion** character if you're interested in running PVP with the guild.\n Thank you, and Happy Grinding!",
             "url": "https://discordapp.com",
             "color": 12337681,
-            "timestamp": "2018-05-10T20:43:42.492Z",
+            "timestamp": new Date(),
             "footer": {
               "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
               "text": "Missing or Incorrect information? Ping @Kurayami-chanTheOriginalSpam to get it corrected"
