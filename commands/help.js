@@ -1,6 +1,6 @@
 const {
     prefix
-} = require('.../config.json');
+} = require('../config.json');
 
 module.exports = {
     name: 'help',
