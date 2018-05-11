@@ -5,7 +5,7 @@ You'll need a config.json file in order to run the bot code successfully.
 {
     "prefix": "&",
     "token": "YOUR-API-TOKEN-HERE",
-    "channel-greeting": "newmembers"
+    "channel_greeting": "newmembers"
 }
 ```
 
