@@ -13,6 +13,7 @@ for (const file of commandFiles) {
 
 if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+// Ensure that endbot is running
 client.on('ready', () => {
     console.log('Endbot ready for chat!');
 });
@@ -23,6 +24,12 @@ const commandName = args.shift().toLowerCase();
 
 if (!client.commands.has(commandName)) return;
 
+const command = client.commands.get(commandName);
+
+if (command.args && !args.length) {
+    return message.channel.send(`You didn't provide any arguments, ${message.author}!`)
+}
+
 try {
     command.execute(message, args);
 }
@@ -31,13 +38,14 @@ catch(error) {
     console.error(error);
     message.reply('There was an error trying to execute the command! Please notify @Kurayami-chanTheOriginalSpam if the issue persists.');
 }
-/*
+
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', channel_greeting);
     if (!channel) return;
     channel.send(`Welcome to the Endless, ${member}! What's your PSN? What game are you here for?`);
 });
 
+/*
 client.on('message', message => {
     if (message.content === `${prefix}ping`) {
       message.reply('pong');
@@ -47,12 +55,6 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === `${prefix}users`) {
         message.reply(message.guild.memberCount);
-    }
-});
-
-client.on('message', message => {
-    if (message.content === `${prefix}commands`) {
-        message.reply('&users - List users');
     }
 });
 

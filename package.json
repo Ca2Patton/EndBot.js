@@ -1,6 +1,11 @@
 {
     "name": "endbot-chatbot",
     "version": "0.0.1",
+    "eslintConfig": {
+        "env": {
+            "node": true
+        }
+    },
     "author": "Caitlin Patton",
     "main": "main.js",
     "scripts": {
