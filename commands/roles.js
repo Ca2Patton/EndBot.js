@@ -25,7 +25,7 @@ module.exports = {
                 })
                 .then(collected => {
                     const role = collected.first().content;
-                    if (role = guild.roles.find('name', role)) {
+                    if (role = guild.roles.find('name', `${role}`)) {
                         message.channel.send(`${member} specified role is ${role}.`);
                     }
                 })
