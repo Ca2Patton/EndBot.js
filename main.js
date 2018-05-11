@@ -11,10 +11,27 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+
 client.on('ready', () => {
     console.log('Endbot ready for chat!');
 });
 
+
+const args = message.content.slice(prefix.length).split(/ +/);
+const commandName = args.shift().toLowerCase();
+
+if (!client.commands.has(commandName)) return;
+
+try {
+    command.execute(message, args);
+}
+
+catch(error) {
+    console.error(error);
+    message.reply('There was an error trying to execute the command! Please notify @Kurayami-chanTheOriginalSpam if the issue persists.');
+}
+/*
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', channel_greeting);
     if (!channel) return;
@@ -119,5 +136,5 @@ client.on('message', message => {
         message.reply('Version 0.0.1');
     }
 });
-
+*/
 client.login(token);
