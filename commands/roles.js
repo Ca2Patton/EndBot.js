@@ -2,6 +2,7 @@ module.exports = {
     name: 'add-role',
     description: 'Add a user to one of the chat groups',
     args: true,
+    usage: '<user>',
     execute(message, args) {
         if (!message.guild) return;
 
@@ -10,7 +11,7 @@ module.exports = {
 
         const roles = [{
             "question": "Which role is the user being added to?",
-            "answers": ["bosses", "endless", "overwatchheroes", "elderscrollers", "esocrafters", "trekkies", "minecrafters", "fortniters", "darksoulers"]
+            "answers": ["endless", "overwatchheroes", "elderscrollers", "esocrafters", "trekkies", "minecrafters", "fortniters", "darksoulers"]
         }];
         const item = roles[Math.floor(Math.random() * roles.length)];
         const filter = response => {
@@ -28,10 +29,10 @@ module.exports = {
                     message.channel.send(`${member} specified role is ${role}.`);
 
                     const new_role = message.guild.roles.find('name', `${role}`);
-                    member.addRole(new_role);
+                    member.addRole(new_role).catch(console.error);
                 })
                 .catch(collected => {
-                    message.channel.send('Timed out waiting for a response. Please try again.');
+                    message.channel.send('Request timed out waiting for a response, or the specified role does not exist.');
                 });
         });
     }
