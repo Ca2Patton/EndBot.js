@@ -24,8 +24,7 @@ module.exports = {
                     errors: ['time']
                 })
                 .then(collected => {
-                    const role = message.guild.role.find('name', `${collected.first()}`);
-                    message.channel.send(`Specified role is ${role}.`);
+                    message.channel.send(`Specified role is ${collected.first()}.`);
                 })
                 .catch(collected => {
                     message.channel.send('Timed out waiting for a response. Please try again.');
