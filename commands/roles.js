@@ -11,7 +11,7 @@ module.exports = {
 
         const roles = [{
             "question": "Which role is the user being added to?",
-            "answers": ["endless", "overwatchheroes", "elderscrollers", "esocrafters", "trekkies", "minecrafters", "fortniters", "darksoulers"]
+            "answers": ["endless", "overwatchheroes", "elderscrollers", "esocrafters", "trekkies", "minecrafters", "fortniters", "darksoulers", "Flatlanders", "West Best Coast", "bEast Coasters", "monsterhunters"]
         }];
         const item = roles[Math.floor(Math.random() * roles.length)];
         const filter = response => {
