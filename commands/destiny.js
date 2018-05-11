@@ -2,7 +2,7 @@ module.exports = {
     name: 'destiny',
     description: 'Destiny RichEmbed message. Displays misc. information about the clan.',
     execute(message, args) {
-        const destinyEmbed = message.channel.send({
+        const destinyEmbed = {
             embed: {
                 color: 0x0099ff,
                 title: 'The Endless',
@@ -30,15 +30,15 @@ module.exports = {
                     text: 'This message need updating? Ping @Kurayami-chanTheOriginalSpam',
                 },
             },
-        });
+        };
         if (!message.mentions.users.size) {
-            return destinyEmbed;
+            return message.channel.send(destinyEmbed);
         } 
         else {
             const taggedUser = message.mentions.users.first();
 
             message.channel.send(`${taggedUser} Looking to join theEndless? See below:`);
-            destinyEmbed;
+            message.channel.send(destinyEmbed);
         }
     }
 };
