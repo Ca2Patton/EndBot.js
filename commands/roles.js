@@ -1,3 +1,5 @@
+const roles = require('./roles.json');
+
 module.exports = {
     name: 'add-role',
     description: 'Add a user to one of the chat groups',
@@ -8,11 +10,6 @@ module.exports = {
 
         const member = message.mentions.members.first();
         // Prompt user for a response.
-
-        const roles = [{
-            "question": "Which role is the user being added to?",
-            "answers": ["endless", "overwatchheroes", "elderscrollers", "esocrafters", "trekkies", "minecrafters", "fortniters", "darksoulers", "Flatlanders", "West Best Coast", "bEast Coasters", "monsterhunters"]
-        }];
         const item = roles[Math.floor(Math.random() * roles.length)];
         const filter = response => {
             return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
