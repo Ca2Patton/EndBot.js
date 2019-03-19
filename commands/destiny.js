@@ -17,12 +17,24 @@ module.exports = {
                     },
                     {
                         name: 'Admins',
-                        value: 'RDSIII, KoreChan93, Fawkes35, DeadGirlParadise, Saucy_Daniell',
+                        value: 'BlueRuby87, KoreChan93, DeadGirlParadise, jtadlock91, Lord_Gupperston, Offline_King',
                         inline: true,
                     },
                     {
-                        name: 'Clan URL',
-                        value: 'https://www.bungie.net/en/ClanV2/Chat?groupId=1572587',
+                        name: 'Endless 1 URL',
+                        value: 'https://www.bungie.net/en/ClanV2?groupid=1572587',
+                    },
+                    {
+                        name: 'Endless 2 URL',
+                        value: 'https://www.bungie.net/en/ClanV2/Chat?groupId=3222511',
+                    },
+                    {
+                        name: 'Endless 3 URL',
+                        value: 'https://www.bungie.net/en/ClanV2?groupid=3523469',
+                    },
+                    {
+                        name: 'Tips:',
+                        value: 'Want to group up with your fellow clanmates? Ping `@endless`. You can also check the #lfg-destiny channel for any scheduled activities.',
                     },
                 ],
                 timestamp: new Date(),

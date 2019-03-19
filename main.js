@@ -86,7 +86,8 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', channel_greeting);
     if (!channel) return;
-    channel.send(`Welcome to the Endless, ${member}! What's your PSN? What game are you here for?`);
+    let howToJoin = member.guild.channels.find(ch => ch.name === 'how-to-join');
+    channel.send(`Welcome to the Endless, ${member}! If you're here to join us in Destiny, or any other game, please see ${howToJoin} up near the top of the Server for the steps. We look forward to meeting you!`);
 });
 
 client.login(token);

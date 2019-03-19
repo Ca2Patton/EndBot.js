@@ -1,4 +1,4 @@
-const { st_host_key, st_api_key, st_engine_name } = require('./config.json');
+const { st_host_key, st_api_key, st_engine_name } = require('../config.json');
 const SwiftypeAppSearchClient = require("swiftype-app-search-node");
 
 module.exports = {
